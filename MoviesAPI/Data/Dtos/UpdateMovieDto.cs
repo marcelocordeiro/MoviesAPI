@@ -1,18 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MoviesAPI.Models;
+namespace MoviesAPI.Data.Dtos;
 
-public class Movie
+public class UpdateMovieDto
 {
-    [Key]
-    [Required]
-    public int Id { get; set; }
-
     [Required(ErrorMessage = "The movie title is mandatory.")]
     public string Title { get; set; }
 
     [Required(ErrorMessage = "The movie genre is mandatory.")]
-    [MaxLength(50, ErrorMessage = "The movie genre cannot have more than 50 characters.")]
+    [StringLength(50, ErrorMessage = "The movie genre cannot have more than 50 characters.")]
     public string Genre { get; set; }
 
     [Required]
